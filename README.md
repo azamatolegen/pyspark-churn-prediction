@@ -1,16 +1,15 @@
-# pyspark-churn-prediction
+# Churn Prediction with PySpark
 
 ### Project Overview
 Churn Prediction is a very common problem in nowadays business, and has been applied widely. 
-The project aims to explore user interaction data to identify customer churn. 
-
-I’m about to build an end-to-end machine learning model to predict churn customer based on a sample dataset of Sparkify users data and the Apache Spark Machine Learning framework. 
+In this project I’m about to build an end-to-end machine learning model to predict churn customer based on a sample dataset of Sparkify users data and the Apache Spark Machine Learning framework. 
 The model is capable of predict which users is likely to churn the music application service.
-PySpark is used to clean, wrangle and process data and perform modeling and tuning to build a churn prediction model.
 
 The dataset contains logs of user interaction. Using the user logs, we need to identify customers with propensity to churn so they can be offered promotions. We can identify factors which are significant indicators for churn.
-In Part I we only use a subset of data (128MB) to train our churn prediction models locally with Spark. 
-Part II specifically focuses on handling the full dataset (12G), where we deploy a cluster on a cloud service.
+In Part I we only use a subset of data (~128MB) to train our churn prediction models locally to save cost. 
+In PART II we will train our predictive model on a large dataset (~12GB) of customer’s activities on a cloud service to take full advantage of Spark’s distributed computing framework.
+
+PySpark is used to clean, wrangle and process data and perform modeling and tuning to build a churn prediction model.
 
 ### Part I
 This part will serve as an exploration of how to make a churn-prediction model using PySpark, with the following steps included:
@@ -19,15 +18,12 @@ This part will serve as an exploration of how to make a churn-prediction model u
 * split data into train and test sets by sampling churn
 * train binary classifier models with Spark’s DataFrame-based MLlib
 * select and fine-tune the final model with Spark’s ML Pipelines and a StratifiedCrossValidator
-* Evaluation of Prediction Performance (Metric: F1 Score)
+* evaluation of Prediction Performance (Metric: F1 Score)
 
 The classifiers presented in this project are as the following:
-* Random Forest classification
-* Linear Support Vector Machine classification
-* Gradient Boosted Trees classification
-
-
-
+* Logistic Regression
+* Decision Tree Classifier
+* Random Forest Classifier
 
 ### Part II
 The goal of this project is to create an end-to-end prediction model of churn user of the Sparkify music application; the tasks involved are the following:
@@ -39,8 +35,6 @@ The goal of this project is to create an end-to-end prediction model of churn us
 
 Analysis
 Data Exploration
-
-
 
 III. Methodology
 
