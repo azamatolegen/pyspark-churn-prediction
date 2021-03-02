@@ -1,6 +1,6 @@
 # Churn Prediction with PySpark
 
-### Project Overview
+## Project Overview
 Churn Prediction is a very common problem in nowadays business, and has been applied widely. 
 In this project I’m about to build an end-to-end machine learning model to predict churn customer based on a sample dataset of Sparkify users data and the Apache Spark Machine Learning framework. 
 The model is capable of predict which users is likely to churn the music application service.
@@ -11,21 +11,60 @@ In PART II we will train our predictive model on a large dataset (~12GB) of cust
 
 PySpark is used to clean, wrangle and process data and perform modeling and tuning to build a churn prediction model.
 
-### Part I
+## Part I
+
 This part will serve as an exploration of how to make a churn-prediction model using PySpark, with the following steps included:
-* explore and manipulate our dataset
-* engineer relevant features for our problem
-* split data into train and test sets by sampling churn
-* train binary classifier models with Spark’s DataFrame-based MLlib
-* select and fine-tune the final model with Spark’s ML Pipelines and a StratifiedCrossValidator
-* evaluation of Prediction Performance (Metric: F1 Score)
 
-The classifiers presented in this project are as the following:
-* Logistic Regression
-* Decision Tree Classifier
-* Random Forest Classifier
+1. Data loading
+* Load subset from JSON
+* Assess missing values
 
-### Part II
+2. Exploratory Data Analysis (EDA)
+* Define churn Cancellation Confirmation event 
+* Transform data
+* Overview of numerical and categorical columns
+* Compare behavior of churn vs. non-churn users in terms of:
+    * User interaction at different hours of the day
+    * User interartion at different days of a week
+    * User level (free vs. paid)
+    * Event types (e.g. add a friend, thumbs up)
+    
+3. Engineer relevant features for our problem
+* Create features on per user basis:
+    * Latest user level
+    * Time since registration
+    * Gender of user
+    * Time and number of session that user has engaged
+    * Count and proportion of each event type
+* Remove strongly correlated features
+* Transform features to have distributions closer to normal
+
+4. Modeling
+* Split dataset into training and testing sets
+* Train binary classifier models, and evaluate models performance (Metric: F1 Score)
+* The classifiers presented in this project are as the following:
+    * Logistic Regression
+    * Decision Tree Classifier
+    * Random Forest Classifier
+ 
+5. Select and fine-tune the final model with K-fold Cross-Validation
+
+### Results
+* Model performance on testing set:
+
+| classifier          | F1 score    |
+| ------------------- | ----------- |
+| Logistic Regression | 0.9167      |
+| Decision Tree       | 0.8167      |
+| Random Forest       | 0.9134      |
+
+*The model performance could be further improved by tuning broader ranges of hyperparameters.
+
+* Churns relate to users who have received more advertisements, disliked songs more often than liked, and registered more recently.
+
+![](./feature_importance.png)
+
+## Part II
 The goal of this project is to create an end-to-end prediction model of churn user of the Sparkify music application; the tasks involved are the following:
 * Preprocessing (load, clean, and transform) the raw dataset in json format with PySpark
 * Analyze the data to define the set of features which can be used to train a predictive model
