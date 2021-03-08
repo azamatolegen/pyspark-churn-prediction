@@ -83,8 +83,8 @@ In this part we are going to use insights from exploratory Part I. Therefore the
 ### Results
 * Model performance on testing set after tuning hyperparameters:
 
-| classifier          | F1 score    | Time |
-| ------------------- | ----------- |------|
-| Random Forest       | 0.8441      | 35s  |
+| classifier          | F1 score    |
+| ------------------- | ----------- |
+| Random Forest       | 0.9384      |
 
 *The model performance could be further improved by tuning broader ranges of hyperparameters.
