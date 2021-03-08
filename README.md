@@ -62,7 +62,7 @@ This part will serve as an exploration of how to make a churn-prediction model u
 
 Explore feature importances:
 
-![](./feature_importance.png)
+![](./feature_importance_plot.png)
 * Churns relate to users who have received more advertisements, disliked songs more often than liked, and registered more recently.
 
 ## Part II: Fine-tune hyperameters on AWS EMR cloud cluster
